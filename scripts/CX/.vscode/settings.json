@@ -1,0 +1,13 @@
+{
+    "python.defaultInterpreterPath": "C:\\Users\\jayala\\AppData\\Local\\anaconda3\\envs\\encuestas\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.profiles.windows": {
+        "Anaconda": {
+            "path": "C:\\Users\\jayala\\anaconda3\\Scripts\\activate.bat",
+            "args": ["encuestas"],
+            "icon": "terminal-cmd"
+        }
+    }
+}

@@ -1,0 +1,160 @@
+2025-08-21 10:35:18,803 - INFO - Logging configurado.
+2025-08-21 10:35:22,121 - INFO - Cargados 15 contactos desde Base usuarios.xlsx
+2025-08-21 10:35:22,137 - INFO - Iniciando procesamiento de 15 contactos.
+2025-08-21 10:35:22,137 - INFO - Procesando contacto 1/15: EDGAR ROSAS NP
+2025-08-21 10:35:22,832 - INFO - Llamada creada exitosamente para EDGAR ROSAS NP (+522221927244)
+2025-08-21 10:35:22,835 - INFO - Esperando 30 segundos...
+2025-08-21 10:35:52,837 - INFO - Procesando contacto 2/15: PAOLA SÁNCHEZ BÁEZ
+2025-08-21 10:35:54,747 - INFO - Llamada creada exitosamente para PAOLA SÁNCHEZ BÁEZ (+525570062084)
+2025-08-21 10:35:54,747 - INFO - Esperando 30 segundos...
+2025-08-21 10:36:24,750 - INFO - Procesando contacto 3/15:      
+2025-08-21 10:36:24,750 - ERROR - Número de teléfono inválido para       después de normalizar.
+2025-08-21 10:36:24,750 - INFO - Esperando 30 segundos...
+2025-08-21 10:36:54,751 - INFO - Procesando contacto 4/15: ALVARADO CRUZ ERICK GIOVANY
+2025-08-21 10:36:55,347 - INFO - Llamada creada exitosamente para ALVARADO CRUZ ERICK GIOVANY (+525559512487)
+2025-08-21 10:36:55,347 - INFO - Esperando 30 segundos...
+2025-08-21 10:37:25,350 - INFO - Procesando contacto 5/15: OSCAR  RODRIGUEZ  JARAL
+2025-08-21 10:37:26,148 - INFO - Llamada creada exitosamente para OSCAR  RODRIGUEZ  JARAL (+525571863227)
+2025-08-21 10:37:26,203 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_103726_Base usuarios.xlsx
+2025-08-21 10:37:26,495 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 10:37:26,495 - INFO - Esperando 30 segundos...
+2025-08-21 10:37:56,502 - INFO - Procesando contacto 6/15: Juana Hernandez .
+2025-08-21 10:37:57,051 - INFO - Llamada creada exitosamente para Juana Hernandez . (+525610288359)
+2025-08-21 10:37:57,051 - INFO - Esperando 30 segundos...
+2025-08-21 10:38:27,066 - INFO - Procesando contacto 7/15: Andres Saldaña Ortega
+2025-08-21 10:38:27,508 - ERROR - Error al crear llamada VAPI para +525000000000: 400 Client Error: Bad Request for url: https://api.vapi.ai/call
+2025-08-21 10:38:27,508 - ERROR - Respuesta de la API: {"message":"Couldn't Create Twilio Call. Twilio Error: Account not allowed to call +525000000000","error":"Bad Request","statusCode":400}
+2025-08-21 10:38:27,512 - INFO - Esperando 30 segundos...
+2025-08-21 10:38:57,524 - INFO - Procesando contacto 8/15: ETIAN ALEJANDRO  CORTEZ  UGALDE 
+2025-08-21 10:38:58,039 - INFO - Llamada creada exitosamente para ETIAN ALEJANDRO  CORTEZ  UGALDE  (+525621895257)
+2025-08-21 10:38:58,039 - INFO - Esperando 30 segundos...
+2025-08-21 10:39:28,040 - INFO - Procesando contacto 9/15: RIOS ARIAS CARLOS ENRIQUE
+2025-08-21 10:39:28,591 - INFO - Llamada creada exitosamente para RIOS ARIAS CARLOS ENRIQUE (+524534534543)
+2025-08-21 10:39:28,607 - INFO - Esperando 30 segundos...
+2025-08-21 10:39:58,612 - INFO - Procesando contacto 10/15: ANA DOLORES HERNANDEZ MONTERO
+2025-08-21 10:39:59,075 - INFO - Llamada creada exitosamente para ANA DOLORES HERNANDEZ MONTERO (+525562922928)
+2025-08-21 10:39:59,119 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_103959_Base usuarios.xlsx
+2025-08-21 10:39:59,362 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 10:39:59,362 - INFO - Esperando 30 segundos...
+2025-08-21 10:40:29,370 - INFO - Procesando contacto 11/15: VELASCO BARCENAS MARIA GUADALUPE
+2025-08-21 10:40:29,901 - INFO - Llamada creada exitosamente para VELASCO BARCENAS MARIA GUADALUPE (+525535638305)
+2025-08-21 10:40:29,901 - INFO - Esperando 30 segundos...
+2025-08-21 10:40:59,915 - INFO - Procesando contacto 12/15: ULISES RAMIREZ REYES 
+2025-08-21 10:41:00,529 - INFO - Llamada creada exitosamente para ULISES RAMIREZ REYES  (+525534911050)
+2025-08-21 10:41:00,529 - INFO - Esperando 30 segundos...
+2025-08-21 10:41:30,532 - INFO - Procesando contacto 13/15: DAVID GRANADOS    
+2025-08-21 10:41:31,019 - INFO - Llamada creada exitosamente para DAVID GRANADOS     (+525523824515)
+2025-08-21 10:41:31,019 - INFO - Esperando 30 segundos...
+2025-08-21 10:42:01,028 - INFO - Procesando contacto 14/15: Ricardo Suarez Guevara
+2025-08-21 10:42:01,622 - INFO - Llamada creada exitosamente para Ricardo Suarez Guevara (+525519560548)
+2025-08-21 10:42:01,631 - INFO - Esperando 30 segundos...
+2025-08-21 10:42:31,639 - INFO - Procesando contacto 15/15: ARIATNE FRANCES QUINTERO
+2025-08-21 10:42:32,383 - INFO - Llamada creada exitosamente para ARIATNE FRANCES QUINTERO (+525515383244)
+2025-08-21 10:42:32,418 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_104232_Base usuarios.xlsx
+2025-08-21 10:42:32,607 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 10:42:32,629 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_104232_Base usuarios.xlsx
+2025-08-21 10:42:32,831 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 10:42:32,832 - INFO - PROCESAMIENTO COMPLETADO
+2025-08-21 11:09:38,470 - INFO - Logging configurado.
+2025-08-21 11:09:43,179 - INFO - Cargados 15 contactos desde Base usuarios.xlsx
+2025-08-21 11:09:47,202 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_110947_Base usuarios.xlsx
+2025-08-21 11:09:47,456 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 11:30:05,196 - INFO - Logging configurado.
+2025-08-21 11:30:11,164 - INFO - Cargados 15 contactos desde Base usuarios.xlsx
+2025-08-21 11:38:32,016 - INFO - Logging configurado.
+2025-08-21 11:38:33,370 - INFO - Cargados 13 contactos desde Base usuarios remarcado.xlsx
+2025-08-21 11:38:42,762 - INFO - Logging configurado.
+2025-08-21 11:40:08,286 - INFO - Logging configurado.
+2025-08-21 11:40:10,734 - INFO - Cargados 4 contactos desde Base usuarios prueba.xlsx
+2025-08-21 11:47:19,703 - INFO - Logging configurado.
+2025-08-21 11:47:21,760 - INFO - Cargados 4 contactos desde Base usuarios prueba.xlsx
+2025-08-21 11:47:27,429 - INFO - Iniciando llamada individual a: JAQUELINE AYALA LÓPEZ
+2025-08-21 11:47:28,005 - INFO - Llamada creada exitosamente para JAQUELINE AYALA LÓPEZ (+525617280474)
+2025-08-21 11:47:28,009 - INFO - Cargados 4 contactos desde Base usuarios prueba.xlsx
+2025-08-21 11:47:28,019 - INFO - Llamada individual exitosa - ID: 77b6ba32-c7d1-4f90-b60e-7735505c0060
+2025-08-21 11:47:28,044 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_114728_Base usuarios prueba.xlsx
+2025-08-21 11:47:28,345 - INFO - Contactos guardados en Base usuarios prueba.xlsx
+2025-08-21 11:53:55,587 - INFO - Logging configurado.
+2025-08-21 11:53:56,848 - INFO - Cargados 13 contactos desde Base usuarios remarcado.xlsx
+2025-08-21 11:54:01,839 - INFO - Logging configurado.
+2025-08-21 11:54:04,845 - INFO - Cargados 13 contactos desde Base usuarios remarcado.xlsx
+2025-08-21 11:54:04,845 - INFO - Iniciando procesamiento de 13 contactos.
+2025-08-21 11:54:04,845 - INFO - Procesando contacto 1/13: EDGAR ROSAS NP
+2025-08-21 11:54:05,458 - INFO - Llamada creada exitosamente para EDGAR ROSAS NP (+522221927244)
+2025-08-21 11:54:05,458 - INFO - Esperando 30 segundos...
+2025-08-21 11:54:35,459 - INFO - Procesando contacto 2/13: PAOLA SÁNCHEZ BÁEZ
+2025-08-21 11:54:35,997 - INFO - Llamada creada exitosamente para PAOLA SÁNCHEZ BÁEZ (+525570062084)
+2025-08-21 11:54:35,997 - INFO - Esperando 30 segundos...
+2025-08-21 11:55:06,006 - INFO - Procesando contacto 3/13:      
+2025-08-21 11:55:06,006 - ERROR - Número de teléfono inválido para       después de normalizar.
+2025-08-21 11:55:06,009 - INFO - Esperando 30 segundos...
+2025-08-21 11:55:36,011 - INFO - Procesando contacto 4/13: ALVARADO CRUZ ERICK GIOVANY
+2025-08-21 11:55:36,496 - INFO - Llamada creada exitosamente para ALVARADO CRUZ ERICK GIOVANY (+525559512487)
+2025-08-21 11:55:36,496 - INFO - Esperando 30 segundos...
+2025-08-21 11:56:06,498 - INFO - Procesando contacto 5/13: OSCAR  RODRIGUEZ  JARAL
+2025-08-21 11:56:07,049 - INFO - Llamada creada exitosamente para OSCAR  RODRIGUEZ  JARAL (+525571863227)
+2025-08-21 11:56:07,075 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_115607_Base usuarios remarcado.xlsx
+2025-08-21 11:56:07,343 - INFO - Contactos guardados en Base usuarios remarcado.xlsx
+2025-08-21 11:56:07,354 - INFO - Esperando 30 segundos...
+2025-08-21 11:56:37,358 - INFO - Procesando contacto 6/13: Juana Hernandez .
+2025-08-21 11:56:37,899 - INFO - Llamada creada exitosamente para Juana Hernandez . (+525610288359)
+2025-08-21 11:56:37,906 - INFO - Esperando 30 segundos...
+2025-08-21 11:57:07,908 - INFO - Procesando contacto 7/13: Andres Saldaña Ortega
+2025-08-21 11:57:08,698 - ERROR - Error al crear llamada VAPI para +525000000000: 400 Client Error: Bad Request for url: https://api.vapi.ai/call
+2025-08-21 11:57:08,698 - ERROR - Respuesta de la API: {"message":"Couldn't Create Twilio Call. Twilio Error: Account not allowed to call +525000000000","error":"Bad Request","statusCode":400}
+2025-08-21 11:57:08,700 - INFO - Esperando 30 segundos...
+2025-08-21 11:57:38,713 - INFO - Procesando contacto 8/13: ETIAN ALEJANDRO  CORTEZ  UGALDE 
+2025-08-21 11:57:39,208 - INFO - Llamada creada exitosamente para ETIAN ALEJANDRO  CORTEZ  UGALDE  (+525621895257)
+2025-08-21 11:57:39,208 - INFO - Esperando 30 segundos...
+2025-08-21 11:58:09,220 - INFO - Procesando contacto 9/13: RIOS ARIAS CARLOS ENRIQUE
+2025-08-21 11:58:09,841 - INFO - Llamada creada exitosamente para RIOS ARIAS CARLOS ENRIQUE (+524534534543)
+2025-08-21 11:58:09,841 - INFO - Esperando 30 segundos...
+2025-08-21 11:58:39,854 - INFO - Procesando contacto 10/13: ANA DOLORES HERNANDEZ MONTERO
+2025-08-21 11:58:40,302 - INFO - Llamada creada exitosamente para ANA DOLORES HERNANDEZ MONTERO (+525562922928)
+2025-08-21 11:58:40,344 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_115840_Base usuarios remarcado.xlsx
+2025-08-21 11:58:40,538 - INFO - Contactos guardados en Base usuarios remarcado.xlsx
+2025-08-21 11:58:40,538 - INFO - Esperando 30 segundos...
+2025-08-21 11:59:10,541 - INFO - Procesando contacto 11/13: ULISES RAMIREZ REYES 
+2025-08-21 11:59:11,207 - INFO - Llamada creada exitosamente para ULISES RAMIREZ REYES  (+525534911050)
+2025-08-21 11:59:11,207 - INFO - Esperando 30 segundos...
+2025-08-21 11:59:41,211 - INFO - Procesando contacto 12/13: DAVID GRANADOS    
+2025-08-21 11:59:41,655 - INFO - Llamada creada exitosamente para DAVID GRANADOS     (+525523824515)
+2025-08-21 11:59:41,655 - INFO - Esperando 30 segundos...
+2025-08-21 12:00:11,655 - INFO - Procesando contacto 13/13: Ricardo Suarez Guevara
+2025-08-21 12:00:12,175 - INFO - Llamada creada exitosamente para Ricardo Suarez Guevara (+525519560548)
+2025-08-21 12:00:12,224 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_120012_Base usuarios remarcado.xlsx
+2025-08-21 12:00:12,426 - INFO - Contactos guardados en Base usuarios remarcado.xlsx
+2025-08-21 12:00:12,426 - INFO - PROCESAMIENTO COMPLETADO
+2025-08-21 12:26:18,667 - INFO - Logging configurado.
+2025-08-21 12:26:20,397 - INFO - Cargados 13 contactos desde Base usuarios remarcado.xlsx
+2025-08-21 12:26:24,248 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_122624_Base usuarios remarcado.xlsx
+2025-08-21 12:26:24,516 - INFO - Contactos guardados en Base usuarios remarcado.xlsx
+2025-08-21 13:43:58,063 - INFO - Logging configurado.
+2025-08-21 13:44:00,277 - INFO - Cargados 6 contactos desde Base usuarios.xlsx
+2025-08-21 16:19:50,984 - INFO - Logging configurado.
+2025-08-21 16:19:59,979 - INFO - Cargados 6 contactos desde Base usuarios.xlsx
+2025-08-21 16:20:23,047 - INFO - Logging configurado.
+2025-08-21 16:20:46,225 - INFO - Cargados 6 contactos desde Base usuarios.xlsx
+2025-08-21 16:20:46,230 - INFO - Iniciando procesamiento de 6 contactos.
+2025-08-21 16:20:46,231 - INFO - Procesando contacto 1/6: JUAN JOSE JUAREZ
+2025-08-21 16:20:46,880 - INFO - Llamada creada exitosamente para JUAN JOSE JUAREZ (+525617508923)
+2025-08-21 16:20:46,886 - INFO - Esperando 30 segundos...
+2025-08-21 16:21:16,901 - INFO - Procesando contacto 2/6: JOSE LUIS ADRIAN CANTU  IMPERIAL
+2025-08-21 16:21:17,461 - INFO - Llamada creada exitosamente para JOSE LUIS ADRIAN CANTU  IMPERIAL (+528134026416)
+2025-08-21 16:21:17,466 - INFO - Esperando 30 segundos...
+2025-08-21 16:21:47,470 - INFO - Procesando contacto 3/6: MARGARITA URESTI GARCIA
+2025-08-21 16:21:48,099 - INFO - Llamada creada exitosamente para MARGARITA URESTI GARCIA (+525513673175)
+2025-08-21 16:21:48,106 - INFO - Esperando 30 segundos...
+2025-08-21 16:22:18,121 - INFO - Procesando contacto 4/6: SAUL  SANCHEZ
+2025-08-21 16:22:18,650 - INFO - Llamada creada exitosamente para SAUL  SANCHEZ (+525520703380)
+2025-08-21 16:22:18,654 - INFO - Esperando 30 segundos...
+2025-08-21 16:22:48,660 - INFO - Procesando contacto 5/6: ALVARO SOSA GALINDO
+2025-08-21 16:22:49,232 - INFO - Llamada creada exitosamente para ALVARO SOSA GALINDO (+527762067990)
+2025-08-21 16:22:49,326 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_162249_Base usuarios.xlsx
+2025-08-21 16:22:50,260 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 16:22:50,261 - INFO - Esperando 30 segundos...
+2025-08-21 16:23:20,276 - INFO - Procesando contacto 6/6: Carlos Hugo Nila Lopez
+2025-08-21 16:23:20,809 - INFO - Llamada creada exitosamente para Carlos Hugo Nila Lopez (+525554510057)
+2025-08-21 16:23:20,893 - INFO - Respaldo creado exitosamente en: C:\Users\jayala\OneDrive - ikeasistencia.com\Documentos\J_Proyects\Agente_encuestas_AI\Backups\backup_20250821_162320_Base usuarios.xlsx
+2025-08-21 16:23:21,387 - INFO - Contactos guardados en Base usuarios.xlsx
+2025-08-21 16:23:21,388 - INFO - PROCESAMIENTO COMPLETADO

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/67d75c7f-89e2-4fb9-8ee2-d376fbbd5952/resourceGroups/az-ike-mx-capa-prd-rg-01/providers/Microsoft.Web/sites/azikeapi-twilio",
+    "appService.deploySubpath": "Twilio"
+}

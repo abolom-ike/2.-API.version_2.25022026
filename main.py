@@ -27,6 +27,8 @@ if __name__ == "__main__":
     tieneRedireccionamiento = df_config["tieneRedireccionamiento"][0]
     # tieneRedireccionamiento = 0
 
+    print("este es el primer cambio de prueba  ")
+
     if agente == 1:
         agente_capacitacion(agente,operacion,URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, rutaArchivoProcesado,tieneRedireccionamiento)
     if agente == 2:

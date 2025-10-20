@@ -1,6 +1,6 @@
 import random
 import pandas as pd
-from source.conexionDB import conexion
+from utils.conexionDB import conexion
 import warnings
 
 warnings.filterwarnings("ignore")

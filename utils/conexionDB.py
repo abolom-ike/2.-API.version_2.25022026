@@ -3,7 +3,7 @@ import json
 
 #with open('C:\\Users\\alovalle\\Desktop\\Api_META\\config.json', 'r') as file: config = json.load(file)
 # with open('S:\SSIS_MX\Agente VAPI\API\config.json', 'r') as file: config = json.load(file)
-with open('S:\SSIS_MX\Agente VAPI\API\source\config.json', 'r') as file: config = json.load(file)
+with open('S:\\SSIS_MX\\Agente VAPI\\API\\utils\\config.json', 'r') as file: config = json.load(file)
 
 
 

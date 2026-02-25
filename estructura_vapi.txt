@@ -1,0 +1,76 @@
+API
+├── agents
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── config
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── coreApi.py
+├── data
+│   ├── CX
+│   │   ├── procesado
+│   │   └── procesar
+│   └── Capacitacion
+│       ├── Excel_pruebas_19092025.xlsx
+│       ├── layout.xlsx
+│       ├── layout2.xlsx
+│       ├── layoutPrueba_sinExt.xlsx
+│       ├── layout_bk_01082025.xlsx
+│       ├── procesado
+│       └── procesar
+├── estructura.py
+├── estructura2.py
+├── main.py
+├── manage.py
+├── scripts
+│   ├── CX
+│   │   ├── Backups
+│   │   ├── Base usuarios interna IKE.xlsx
+│   │   ├── Prompt proveedor.txt
+│   │   ├── Prompt.txt
+│   │   ├── agenteCx.py
+│   │   ├── config.py
+│   │   ├── main.py
+│   │   ├── manageAgenteCX.py
+│   │   ├── sistema_de_encuestas.py
+│   │   └── sistema_de_logs.log
+│   ├── Capacitacion
+│   │   └── agenteCapacitacion.py
+│   ├── Twilio
+│   │   ├── requirements.txt
+│   │   ├── startup.txt
+│   │   ├── twilio_redi copy.py
+│   │   ├── twilio_redi.py
+│   │   └── twilio_redi_bk.py
+│   └── funciones
+│       ├── funciones.py
+│       └── funcionesDB.py
+├── sistema_de_logs.log
+├── statics
+│   ├── css
+│   ├── images
+│   └── js
+├── templates
+│   └── includes
+├── terminar_llamada.py
+├── utils
+│   ├── conexionDB.py
+│   └── config.json
+└── webapp
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── migrations
+    │   └── __init__.py
+    ├── models.py
+    ├── tests.py
+    └── views.py

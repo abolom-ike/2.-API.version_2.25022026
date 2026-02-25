@@ -10,7 +10,7 @@ from scripts.funciones.funcionesDB import truncate_stage
 from scripts.funciones.funcionesDB import insertar_detalle_llamada
 from scripts.funciones.funcionesDB import cerrarConexion
 from scripts.funciones.funcionesDB import obtener_llamadas_a_procesar
-from scripts.funciones.funciones import mover_archivo_a_procesados
+#from scripts.funciones.funcionesDB import mover_archivo_a_procesados
 from coreApi import genera_llamada, getLlamada##, genera_llamada_con_extension,genera_llamada_con_extension_prueba1
 
 # método principal del agente de capacitación(selección de operación)
@@ -29,6 +29,7 @@ def agente_capacitacion(agente,operacion, URL, phoneNumberId, API_KEY, AGENT_ID,
 
 
 def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, rutaArchivoProcesado):
+    
     # headers petición a la API
     headers = {
         "Authorization": f"Bearer {API_KEY}",
@@ -43,15 +44,20 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
         df = df.fillna(' ') 
         df_config = obtener_configuracion()
         df_llamadas = df.merge(df_config, left_on=["clservicio", "clsubservicio"], right_on=["clServicio", "clSubServicio"], how="inner")
-
+        #voz = obtener_voz_perfil()
+        #if not voz:
+        #    raise Exception("No se encontró voz válida")
+        #idVoz_vapi, provider, voice_id, idGenero_vapi = voz
         for index, row in df_llamadas.iterrows():
-            idVoz_vapi, provider, voice_id, idGenero_vapi = obtener_voz_perfil()
+            id_buscado = 40
+            idVoz_vapi,provider,voice_id, idGenero_vapi = obtener_voz_perfil(id_buscado)
             idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = obtener_perfil(idGenero_vapi)
             print(df_llamadas)
             idAgenteVapi = row["idAgenteVapi"]
             phone_number = row["numero"]
-            prompt = row["prompt"]
-            prompt = prompt % (gender,selected_name, apellido_paterno, apellido_materno, edad, clave)
+            prompt =       row["prompt"]
+            prompt =       prompt.format (gender = gender,selected_name = selected_name, apellido_paterno = apellido_paterno, apellido_materno = apellido_materno, edad = edad, clave = clave)
+            
             idPromptVapi = row["idPromptVapi"]
             numero = row["numero"]
             clServicio = row["clservicio"]
@@ -59,11 +65,16 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
             nombre = row["nombre"]
             extension = row["extension"]
             phone_number = "+" + str(phone_number)
-            # extension= "600543#"
+        # extension= "600543#"
+            menu_digit = "1" #"7"
+            sub_menu_digit = ""#"1"
 
-            # # json para la petición con dinamismo de voz y perfil 
+        # provider = '11labs'
+        # voice_id = '6HCwgZXWcrhF6ZoTZJkf'
+
+        # # json para la petición con dinamismo de voz y perfil 
             json={
-                "assistantId": AGENT_ID,
+                "assistantId":   AGENT_ID,
                 "phoneNumberId": phoneNumberId,
                 "customers": [
                 {
@@ -73,7 +84,9 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
                 "assistantOverrides": {
                 "variableValues": {
                     "prompt": prompt,
-                    "extension": extension   # <-- Aquí defines la extensión
+                    "extension": extension,   # extensión
+                    "menu_digit": menu_digit,       # menú principal
+                    "sub_menu_digit": sub_menu_digit    # submenú
                 },
                 "voice": {
                     "provider": provider,
@@ -81,7 +94,7 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
                     }
                 }
             }
-    
+
             df_llamadas_sta = pd.DataFrame()
             df_llamadas_sta['idAgenteVapi'] = [idAgenteVapi]
             df_llamadas_sta['idPromptVapi'] = [idPromptVapi]
@@ -97,9 +110,9 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
             df_llamadas_sta['idPerfil_vapi'] = [idPerfil_vapi]
             df_llamadas_sta['extension'] = [extension]
             genera_llamada(URL,headers,json,df_llamadas_sta)
-            time.sleep(30)
-            
-        # mover_archivo_a_procesados(rutaArchivoProcesar,rutaArchivoProcesado)
+            time.sleep(20)
+        
+    # mover_archivo_a_procesados(rutaArchivoProcesar,rutaArchivoProcesado)
 
     else:
         print("No hay archivo a procesar")

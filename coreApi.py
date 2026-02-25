@@ -1,8 +1,8 @@
 import requests
 import time
 import json
-from scripts.funciones.funcionesDB import insertar_detalle_llamada
-from scripts.funciones.funcionesDB import actualizar_procesada
+from   scripts.funciones.funcionesDB import insertar_detalle_llamada
+from  scripts.funciones.funcionesDB import actualizar_procesada
 from scripts.funciones.funcionesDB import insertar_histo
 from twilio.rest import Client
 from twilio.twiml.voice_response import VoiceResponse, Dial, Pause
@@ -32,7 +32,7 @@ def genera_llamada(URL,headers,json,df_llamadas_sta):
         df_llamadas_sta['orgId'] = [json_res['results'][0]['orgId']]
         df_llamadas_sta['status'] = [json_res['results'][0]['status']]
         df_llamadas_sta['phoneCallProvider'] = [json_res['results'][0]['phoneCallProvider']]
-        df_llamadas_sta['phoneCallProviderId'] = [json_res['results'][0]['phoneCallProviderId']]
+       #df_llamadas_sta['phoneCallProviderId'] = [json_res['results'][0]['phoneCallProviderId']]
         df_llamadas_sta['customer_number'] = [json_res['results'][0]['customer']['number']]
 
         print(df_llamadas_sta)

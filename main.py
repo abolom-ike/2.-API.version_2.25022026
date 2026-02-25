@@ -11,7 +11,7 @@ if __name__ == "__main__":
         print("Uso: python main.py idAgente operacion(1 Genera Llamada o 2 Procesa Llamada)")
         sys.exit(1)  # salir con error
     
-    agente = sys.argv[1]#id agente
+    agente    = sys.argv[1] #id agente
     operacion = sys.argv[2] #operacion
     
 
@@ -22,10 +22,12 @@ if __name__ == "__main__":
     API_KEY = df_config["api_key"][0]
     AGENT_ID = df_config["agent_id"][0]
     phoneNumberId = df_config["phone_number_id"][0]
-    rutaArchivoProcesar = df_config["rutaArchivoProcesar"][0]
-    rutaArchivoProcesado = df_config["rutaArchivoProcesado"][0]
+    #rutaArchivoProcesar = df_config["rutaArchivoProcesar"][0]
+    rutaArchivoProcesar =  "data/Capacitacion/procesar/"
+    rutaArchivoProcesado = "data/Capacitacion/procesado/"
+    #rutaArchivoProcesado = df_config["rutaArchivoProcesado"][0]
     tieneRedireccionamiento = df_config["tieneRedireccionamiento"][0]
-    # tieneRedireccionamiento = 0
+    tieneRedireccionamiento = 0
 
     print("este es el primer cambio de prueba  ")
 

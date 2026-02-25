@@ -124,7 +124,7 @@ def end_call_with_fallback(call_id: str,
 
 
 if __name__ == "__main__":
-    account_sid = "0199bf65-6e8b-7665-8a5e-249fef7cade8"
+    account_sid = "019a1230-e990-7dd0-928a-4ef5c55e1149"
     auth_token = "aac22b3ca5030ccc982aa4d5f7e553dc"
     api_key= "bc2041b5-6464-4c37-b936-6fffcfa0c158"
     out = end_call_with_fallback("0199c58a-b917-7ccb-9a8e-a58a094df122", vapi_api_key=api_key,

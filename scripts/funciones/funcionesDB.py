@@ -14,20 +14,32 @@ def truncate_stage():
     except Exception as e:
         print("Ocurrio un error al truncar las tablas : " , e)
 
-
+# obtener_configuracion: Trae la configuración activa de servicios y prompts, uniendo las dos tablas según sus identificadores.
 def obtener_configuracion():
     try:
         with conexion.cursor() as cursor:
             ejecutarTabla = """select  
-                            t1.clServicio, t1.Servicio, t1.clSubServicio, t1.SubServicio, t1.NombreCuenta, t2.idPromptVapi, t2.prompt
-                        from bi_vapi_llamada_agente_config t1 
-                            inner join bi_vapi_prompt t2 on t1.idPromptVapi = t2.idPromptVapi and t1.clServicio = t2.clServicio and t1.clSubServicio = t2.clSubServicio and t1.clcuenta = t2.clcuenta
+                            t1.clServicio, 
+                            t1.Servicio, 
+                            t1.clSubServicio, 
+                            t1.SubServicio, 
+                            t1.NombreCuenta, 
+                            t2.idPromptVapi, 
+                            t2.prompt
+
+                            from bi_vapi_llamada_agente_config t1 
+                            inner join bi_vapi_prompt t2 on  t1.idPromptVapi = t2.idPromptVapi 
+                            
+                            and t1.clServicio = t2.clServicio 
+                            and t1.clSubServicio = t2.clSubServicio 
+                            and t1.clcuenta = t2.clcuenta
                             where t1.activo = 1"""
             DataFBU = pd.read_sql(ejecutarTabla, conexion)
     except Exception as e:
         print("Ocurrio un error al obtener la tabla : " , e)
     return DataFBU
 
+#define el agente que se va a usar
 def obtener_config_api_agente(idAgenteVapi):
     try:
         with conexion.cursor() as cursor:
@@ -54,21 +66,36 @@ def actualizar_procesada(id_llamada):
     except Exception as e:
         print("Ocurrio un error al actualizar la tabla : " , e)
 
-def obtener_voz_perfil():
+# se obtiene la voz para el agente, la columna clave es idGenero
+
+# busca perfiles y los filtra por género, el género se obtiene de obtenervozperfil
+# devuelve las columnas en valores independientes
+def obtener_voz_perfil(id_buscado):
+    #id_buscado = 45
     try:
         with conexion.cursor() as cursor:
-            cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE activo = 1")
-            voices = cursor.fetchall()
-            idVoz_vapi, provider, voice_id, idGenero_vapi = random.choice(voices)
-            return idVoz_vapi, provider, voice_id, idGenero_vapi
+            #cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE activo = 1")
+            cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE idVoz_vapi = ?",(id_buscado,))
+            #voices = cursor.fetchall()
+            voices = cursor.fetchone()
+            #idVoz_vapi, provider, voice_id, idGenero_vapi = random.choice(voices)
+
+            if voices:
+                idVoz_vapi, provider, voice_id, idGenero_vapi = voices
+                return idVoz_vapi, provider, voice_id, idGenero_vapi
+            else:
+                return None
+
+            #return idVoz_vapi, provider, voice_id, idGenero_vapi
     except Exception as e:
         print("Ocurrio un error al def obtener_voz_perfil() : " , e)
+
 
 def obtener_perfil(idGenero_vapi):
     try:
         with conexion.cursor() as cursor:
             cursor.execute("""
-                 select per.idPerfil_vapi,per.nombre, per.apellido_paterno, per.Apellido_materno, per.edad, gen.genero, per.clave from BI_VAPI_PERFILES_USR per
+                select per.idPerfil_vapi,per.nombre, per.apellido_paterno, per.Apellido_materno, per.edad, gen.genero, per.clave from BI_VAPI_PERFILES_USR per
 	            inner join bi_vapi_genero gen on per.idGenero_vapi = gen.idGenero_vapi where per.activo = 1 and per.idGenero_vapi = %d""" % (idGenero_vapi))
             names = cursor.fetchall()
             idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = random.choice(names)
@@ -85,6 +112,7 @@ def insertar_histo(df):
                                row.idAgenteVapi, row.phone_number, row.idPromptVapi, row.numero, row.nombre, row.clServicio, row.clSubServicio, row.id_llamada, row.phoneNumberId, row.type, row.createdAt, row.orgId, row.status, row.phoneCallProvider, row.phoneCallProviderId, row.customer_number, row.procesada, row.transcripcion, row.recordingUrl,row.uuid_solicitud_llamada,row.NombreArhivoExcel,row.idVoz_vapi,row.idPerfil_vapi,row.ext)
     except Exception as e:
         print("Ocurrio un error al insertar en la tabla de insertar_histo : ", e)
+
 
 def insertar_detalle_llamada(lista):
     try:

@@ -27,7 +27,7 @@ def obtener_configuracion():
                             t2.idPromptVapi, 
                             t2.prompt
 
-                            from bi_vapi_llamada_agente_config t1 
+                            from  bi_vapi_llamada_agente_config t1 
                             inner join bi_vapi_prompt t2 on  t1.idPromptVapi = t2.idPromptVapi 
                             
                             and t1.clServicio = t2.clServicio 
@@ -95,8 +95,17 @@ def obtener_perfil(idGenero_vapi):
     try:
         with conexion.cursor() as cursor:
             cursor.execute("""
-                select per.idPerfil_vapi,per.nombre, per.apellido_paterno, per.Apellido_materno, per.edad, gen.genero, per.clave from BI_VAPI_PERFILES_USR per
+                select 
+                per.idPerfil_vapi,
+                per.nombre, 
+                per.apellido_paterno, 
+                per.Apellido_materno, 
+                per.edad, 
+                gen.genero, 
+                per.clave
+                from BI_VAPI_PERFILES_USR per
 	            inner join bi_vapi_genero gen on per.idGenero_vapi = gen.idGenero_vapi where per.activo = 1 and per.idGenero_vapi = %d""" % (idGenero_vapi))
+            
             names = cursor.fetchall()
             idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = random.choice(names)
             return idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave

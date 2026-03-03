@@ -37,19 +37,18 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
     }
     uuid_file = uuid.uuid1()
     archivos = os.listdir(rutaArchivoProcesar) 
+
     if len(archivos) >= 1:
         archivo = archivos[0]
         archivoExcel = rutaArchivoProcesar +  archivo
         df = pd.read_excel(archivoExcel)  
         df = df.fillna(' ') 
+
         df_config = obtener_configuracion()
         df_llamadas = df.merge(df_config, left_on=["clservicio", "clsubservicio"], right_on=["clServicio", "clSubServicio"], how="inner")
-        #voz = obtener_voz_perfil()
-        #if not voz:
-        #    raise Exception("No se encontró voz válida")
-        #idVoz_vapi, provider, voice_id, idGenero_vapi = voz
+   
         for index, row in df_llamadas.iterrows():
-            id_buscado = 40
+            id_buscado = 44
             idVoz_vapi,provider,voice_id, idGenero_vapi = obtener_voz_perfil(id_buscado)
             idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = obtener_perfil(idGenero_vapi)
             print(df_llamadas)

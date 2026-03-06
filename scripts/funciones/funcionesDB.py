@@ -30,10 +30,10 @@ def obtener_configuracion():
                             from  bi_vapi_llamada_agente_config t1 
                             inner join bi_vapi_prompt t2 on  t1.idPromptVapi = t2.idPromptVapi 
                             
-                            and t1.clServicio = t2.clServicio 
+                            and t1.clServicio    = t2.clServicio 
                             and t1.clSubServicio = t2.clSubServicio 
-                            and t1.clcuenta = t2.clcuenta
-                            where t1.activo = 1"""
+                            and t1.clcuenta      = t2.clcuenta
+                            where t1.activo      = 1"""
             DataFBU = pd.read_sql(ejecutarTabla, conexion)
     except Exception as e:
         print("Ocurrio un error al obtener la tabla : " , e)
@@ -66,16 +66,46 @@ def actualizar_procesada(id_llamada):
     except Exception as e:
         print("Ocurrio un error al actualizar la tabla : " , e)
 
+def datos_prompt(id_prompt):
+    try:
+        with conexion.cursor() as cursor:
+            query = """
+                SELECT
+                    id_voz,
+                    edad_min,
+                    edad_max
+                FROM bi_control_prompts
+                WHERE id_prompt   = ?
+            
+            """
+
+            cursor.execute(query, (id_prompt))
+            result = cursor.fetchone()
+
+            if not result:
+                print("No se encontró configuración para ese servicio.")
+                return None
+
+            (id_voz,edad_min,edad_max) = result
+
+            return (id_voz,edad_min,edad_max)
+
+    except Exception as e:
+        print("Ocurrió un error al obtener_control_prompts():", e)
+        return None
+
+
+
 # se obtiene la voz para el agente, la columna clave es idGenero
 
 # busca perfiles y los filtra por género, el género se obtiene de obtenervozperfil
 # devuelve las columnas en valores independientes
-def obtener_voz_perfil(id_buscado):
+def obtener_voz_perfil(id_voz):
     #id_buscado = 45
     try:
         with conexion.cursor() as cursor:
             #cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE activo = 1")
-            cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE idVoz_vapi = ?",(id_buscado,))
+            cursor.execute("SELECT idVoz_vapi,Provider, VoiceId, idGenero_vapi FROM bi_vapi_voz_perfil WHERE idVoz_vapi = ?",(id_voz,))
             #voices = cursor.fetchall()
             voices = cursor.fetchone()
             #idVoz_vapi, provider, voice_id, idGenero_vapi = random.choice(voices)
@@ -91,10 +121,10 @@ def obtener_voz_perfil(id_buscado):
         print("Ocurrio un error al def obtener_voz_perfil() : " , e)
 
 
-def obtener_perfil(idGenero_vapi):
+def obtener_perfil(idGenero_vapi,edad_min,edad_max):
     try:
         with conexion.cursor() as cursor:
-            cursor.execute("""
+            query = """
                 select 
                 per.idPerfil_vapi,
                 per.nombre, 
@@ -102,13 +132,21 @@ def obtener_perfil(idGenero_vapi):
                 per.Apellido_materno, 
                 per.edad, 
                 gen.genero, 
-                per.clave
+                per.clave,
+                per.domicilio
+                
                 from BI_VAPI_PERFILES_USR per
-	            inner join bi_vapi_genero gen on per.idGenero_vapi = gen.idGenero_vapi where per.activo = 1 and per.idGenero_vapi = %d""" % (idGenero_vapi))
-            
+	            
+                inner join bi_vapi_genero gen on per.idGenero_vapi = gen.idGenero_vapi 
+                where per.activo = 1 
+                    and per.idGenero_vapi = ?
+                    and per.edad between ? AND ?""" 
+  
+            cursor.execute(query, (idGenero_vapi,edad_min,edad_max))
             names = cursor.fetchall()
-            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = random.choice(names)
-            return idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave
+            print("DEBUG: rows fetched =", names)
+            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave,domicilio = random.choice(names)
+            return idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave,domicilio
     except Exception as e:
         print("Ocurrio un error al obtener_perfil() : " , e)
 

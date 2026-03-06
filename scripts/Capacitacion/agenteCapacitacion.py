@@ -10,6 +10,8 @@ from scripts.funciones.funcionesDB import truncate_stage
 from scripts.funciones.funcionesDB import insertar_detalle_llamada
 from scripts.funciones.funcionesDB import cerrarConexion
 from scripts.funciones.funcionesDB import obtener_llamadas_a_procesar
+from scripts.funciones.funcionesDB import datos_prompt
+
 #from scripts.funciones.funcionesDB import mover_archivo_a_procesados
 from coreApi import genera_llamada, getLlamada##, genera_llamada_con_extension,genera_llamada_con_extension_prueba1
 
@@ -46,27 +48,43 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
 
         df_config = obtener_configuracion()
         df_llamadas = df.merge(df_config, left_on=["clservicio", "clsubservicio"], right_on=["clServicio", "clSubServicio"], how="inner")
+
    
         for index, row in df_llamadas.iterrows():
-            id_buscado = 44
-            idVoz_vapi,provider,voice_id, idGenero_vapi = obtener_voz_perfil(id_buscado)
-            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave = obtener_perfil(idGenero_vapi)
+
+            id_prompt                = row["idPromptVapi"]
+            id_voz,edad_min,edad_max = datos_prompt(id_prompt)
+            #id_buscado = 40
+            idVoz_vapi,provider,voice_id, idGenero_vapi = obtener_voz_perfil(id_voz)
+            print("idGenero_vapi:", idGenero_vapi)
+            
+            perfil = obtener_perfil(idGenero_vapi,edad_min,edad_max)
+            print("perfil:", perfil)
+            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave, domicilio = obtener_perfil(idGenero_vapi,edad_min,edad_max)
             print(df_llamadas)
             idAgenteVapi = row["idAgenteVapi"]
             phone_number = row["numero"]
             prompt =       row["prompt"]
-            prompt =       prompt.format (gender = gender,selected_name = selected_name, apellido_paterno = apellido_paterno, apellido_materno = apellido_materno, edad = edad, clave = clave)
+            prompt =  prompt.format (
+                gender           = gender,
+                selected_name    = selected_name, 
+                apellido_paterno = apellido_paterno, 
+                apellido_materno = apellido_materno, 
+                edad             = edad, 
+                clave            = clave,
+                domicilio        = domicilio
+            )
             
-            idPromptVapi = row["idPromptVapi"]
-            numero = row["numero"]
-            clServicio = row["clservicio"]
-            clSubServicio = row["clsubservicio"]
-            nombre = row["nombre"]
-            extension = row["extension"]
-            phone_number = "+" + str(phone_number)
+            idPromptVapi     = row["idPromptVapi"]
+            numero           = row["numero"]
+            clServicio       = row["clservicio"]
+            clSubServicio    = row["clsubservicio"]
+            nombre           = row["nombre"]
+            extension        = row["extension"]
+            phone_number     = "+" + str(phone_number)
         # extension= "600543#"
-            menu_digit = "1" #"7"
-            sub_menu_digit = ""#"1"
+            menu_digit       = "1" #"7"
+            sub_menu_digit   = ""#"1"
 
         # provider = '11labs'
         # voice_id = '6HCwgZXWcrhF6ZoTZJkf'
@@ -159,18 +177,21 @@ def genera_llamadas_con_redireccionamiento(URL, phoneNumberId, API_KEY, AGENT_ID
         # print(df)    
         df_config = obtener_configuracion()
 
-        df_llamadas = df.merge(df_config, left_on=["clservicio", "clsubservicio"], right_on=["clServicio", "clSubServicio"], how="inner")
+        df_llamadas = df.merge(df_config,
+                               left_on =["clservicio", "clsubservicio"], 
+                               right_on=["clServicio", "clSubServicio"], 
+                               how="inner")
 
         for index, row in df_llamadas.iterrows():
             # print(df_llamadas)
-            idAgenteVapi = row["idAgenteVapi"]
-            phone_number = row["numero"]
-            prompt = row["prompt"]
-            idPromptVapi = row["idPromptVapi"]
-            numero = row["numero"]
-            clServicio = row["clservicio"]
-            clSubServicio = row["clsubservicio"]
-            nombre = row["nombre"]
+            idAgenteVapi    = row["idAgenteVapi"]
+            phone_number    = row["numero"]
+            prompt          = row["prompt"]
+            idPromptVapi    = row["idPromptVapi"]
+            numero          = row["numero"]
+            clServicio      = row["clservicio"]
+            clSubServicio   = row["clsubservicio"]
+            nombre          = row["nombre"]
             phone_number = "+" + str(phone_number)
 
             # # json para la petición
@@ -190,15 +211,15 @@ def genera_llamadas_con_redireccionamiento(URL, phoneNumberId, API_KEY, AGENT_ID
             }
             df_llamadas_sta = pd.DataFrame()
 
-            df_llamadas_sta['idAgenteVapi'] = [idAgenteVapi]
-            df_llamadas_sta['idPromptVapi'] = [idPromptVapi]
-            df_llamadas_sta['phone_number'] = [phone_number]
-            df_llamadas_sta['numero'] = [numero]
-            df_llamadas_sta['nombre'] = [nombre]
-            df_llamadas_sta['clServicio'] = [clServicio]
-            df_llamadas_sta['clSubServicio'] = [clSubServicio]
-            df_llamadas_sta['procesada'] = 0
-            df_llamadas_sta['uuid_file'] = [uuid_file]
+            df_llamadas_sta['idAgenteVapi']      = [idAgenteVapi]
+            df_llamadas_sta['idPromptVapi']      = [idPromptVapi]
+            df_llamadas_sta['phone_number']      = [phone_number]
+            df_llamadas_sta['numero']            = [numero]
+            df_llamadas_sta['nombre']            = [nombre]
+            df_llamadas_sta['clServicio']        = [clServicio]
+            df_llamadas_sta['clSubServicio']     = [clSubServicio]
+            df_llamadas_sta['procesada']         = 0
+            df_llamadas_sta['uuid_file']         = [uuid_file]
             df_llamadas_sta['NombreArhivoExcel'] = [archivo]
             # genera_llamada_con_redireccionamiento(URL,headers,json,df_llamadas_sta)
             ## hacer prueba con varios números 

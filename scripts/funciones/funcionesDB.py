@@ -132,9 +132,14 @@ def obtener_perfil(idGenero_vapi,edad_min,edad_max):
                 per.Apellido_materno, 
                 per.edad, 
                 gen.genero, 
-                per.clave,
-                per.domicilio
-                
+                per.clave_letra,
+                per.domicilio,
+                per.entidad,
+                per.municipio,
+                per.localidad,
+                per.telefono_letra,
+                per.cod_postal_letra
+
                 from BI_VAPI_PERFILES_USR per
 	            
                 inner join bi_vapi_genero gen on per.idGenero_vapi = gen.idGenero_vapi 
@@ -145,8 +150,8 @@ def obtener_perfil(idGenero_vapi,edad_min,edad_max):
             cursor.execute(query, (idGenero_vapi,edad_min,edad_max))
             names = cursor.fetchall()
             print("DEBUG: rows fetched =", names)
-            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave,domicilio = random.choice(names)
-            return idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave,domicilio
+            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave_letra,domicilio,entidad,municipio,localidad,telefono_letra,cod_postal_letra = random.choice(names)
+            return idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave_letra,domicilio,entidad,municipio,localidad,telefono_letra,cod_postal_letra
     except Exception as e:
         print("Ocurrio un error al obtener_perfil() : " , e)
 

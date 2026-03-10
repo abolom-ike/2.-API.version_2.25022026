@@ -11,6 +11,7 @@ from scripts.funciones.funcionesDB import insertar_detalle_llamada
 from scripts.funciones.funcionesDB import cerrarConexion
 from scripts.funciones.funcionesDB import obtener_llamadas_a_procesar
 from scripts.funciones.funcionesDB import datos_prompt
+from datetime import datetime
 
 #from scripts.funciones.funcionesDB import mover_archivo_a_procesados
 from coreApi import genera_llamada, getLlamada##, genera_llamada_con_extension,genera_llamada_con_extension_prueba1
@@ -48,10 +49,11 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
 
         df_config = obtener_configuracion()
         df_llamadas = df.merge(df_config, left_on=["clservicio", "clsubservicio"], right_on=["clServicio", "clSubServicio"], how="inner")
-
+        
+        anio_actual = datetime.now().year
    
         for index, row in df_llamadas.iterrows():
-
+       
             id_prompt                = row["idPromptVapi"]
             id_voz,edad_min,edad_max = datos_prompt(id_prompt)
             #id_buscado = 40
@@ -60,19 +62,25 @@ def genera_llamadas(URL, phoneNumberId, API_KEY, AGENT_ID, rutaArchivoProcesar, 
             
             perfil = obtener_perfil(idGenero_vapi,edad_min,edad_max)
             print("perfil:", perfil)
-            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender, clave, domicilio = obtener_perfil(idGenero_vapi,edad_min,edad_max)
+            idPerfil_vapi,selected_name, apellido_paterno, apellido_materno, edad, gender,clave_letra,domicilio,entidad,municipio,localidad,telefono_letra,cod_postal_letra = obtener_perfil(idGenero_vapi,edad_min,edad_max)
             print(df_llamadas)
             idAgenteVapi = row["idAgenteVapi"]
             phone_number = row["numero"]
             prompt =       row["prompt"]
             prompt =  prompt.format (
-                gender           = gender,
-                selected_name    = selected_name, 
-                apellido_paterno = apellido_paterno, 
-                apellido_materno = apellido_materno, 
-                edad             = edad, 
-                clave            = clave,
-                domicilio        = domicilio
+                gender                  = gender,
+                selected_name           = selected_name, 
+                apellido_paterno        = apellido_paterno, 
+                apellido_materno        = apellido_materno, 
+                edad                    = edad, 
+                clave_letra             = clave_letra,
+                domicilio               = domicilio,
+                entidad                 = entidad,
+                municipio               = municipio,
+                localidad               = localidad,
+                telefono_letra          = telefono_letra,
+                cod_postal_letra        = cod_postal_letra,
+                anio_actual             = anio_actual
             )
             
             idPromptVapi     = row["idPromptVapi"]
